@@ -1,0 +1,21 @@
+# 사실 이 코드 싹다 없어도 스프링부트가 test는 알아서 MemoryDB로 돌림
+spring:
+  datasource:
+    url: jdbc:h2:mem:test # 근데 이거 없어도 알아서 MemoryDB로 돌림
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # drop하고 create하고 다시 싹다 drop
+    propeties:
+      hibernate:
+  #     show_sql: true       System.out을 통해 찍음
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug    # log를 통해 찍음
+    org.hibernate.type: trace
+
